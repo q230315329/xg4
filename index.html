@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	body{
+		background: url(2.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.ss{
+		width: 440px;
+		height: 440px;
+		border: 1px solid pink;
+		margin: 130px  auto;
+	}
+	.a1{
+		width: 120px;
+		height: 120px;
+		border: 1px solid #fd3a36;
+		float: left;
+		margin: 12px;
+		text-align: center;
+  		line-height: 120px;
+  		color:blue;
+  		font-weight: bold;
+  		font-size: 20px;
+	}
+	#btn{
+		cursor: pointer;
+	}
+	marquee{
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		left: 50px;
+		bottom:280px;
+		border: 1px solid black;
+	}
+	p{
+		font-size: 20px;
+		color: white;
+	}
+	</style>
+</head>
+<body>
+<div class="ss">
+	<div class="a1">宝马</div>
+ 	<div class="a1">电冰箱</div>
+ 	<div class="a1">空调</div>
+ 	<div class="a1">谢谢参与</div>
+ 	<div class="a1" style="color:#000" id="btn">开始</div>
+   	<div class="a1">劳力士</div>
+   	<div class="a1">神秘大奖</div>
+  	<div class="a1">600元</div>
+   	<div class="a1">30元</div>
+</div>
+<marquee direction='up' id='as'>
+<p>中奖名单：</p>
+<p>王五:中了劳力士</p>
+<p>小七:中了空调</p>
+</marquee>
+<script type="text/javascript">
+var x =document.querySelectorAll('.a1');
+var y = [ x[0],x[1],x[2],x[5],x[8],x[7],x[6],x[3]];
+var i =0;
+btn.onclick = cj;
+var nael='';
+var jp = '';
+function cj() {
+	nael = prompt('请输入用户名：');
+	var v = setInterval(`
+	for (var k =0 ; k <y.length; k++){
+		y[k].style.background = '';
+	}
+	y[i].style.background = 'yellow';
+	jp = y[i].innerHTML;
+	console.log(jp);
+	i++;
+	if (i>y.length-1) {
+		i=0;
+	}
+	`,300)
+	var time = Math.random()*(15000-6000+1)+6000;
+ 	setTimeout(`
+	 clearInterval(${v});
+	 var sta = nael+':中了'+jp+'!';
+	 as.innerHTML+= "<p>"+sta+"</p>"
+	 `,time)
+	}
+</script>
+</body>
+</html>
